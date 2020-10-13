@@ -1,0 +1,27 @@
+RewriteEngine On
+
+#Development
+RewriteCond %{HTTP_HOST} ^goodsyst$
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://goodsyst/aswaygroup-entis/$1 [R,L]
+
+#Production Sub Domain
+#RewriteCond %{HTTP_HOST} ^www\.sub\.domain\.ltd$ [OR]
+#RewriteCond %{HTTP_HOST} ^sub\.domain\.ltd$
+#RewriteCond %{SERVER_PORT} 80
+#RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+#RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+#RewriteRule ^(.*)$ https://sub.domain.ltd/$1 [R,L]
+
+#Production Main Domain
+#RewriteCond %{HTTP_HOST} ^www\.domain\.ltd$ [OR]
+#RewriteCond %{HTTP_HOST} ^domain\.ltd$
+#RewriteCond %{SERVER_PORT} 80
+#RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+#RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+#RewriteRule ^(.*)$ https://domain.ltd/$1 [R,L]
+
+#Codeigniter
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
